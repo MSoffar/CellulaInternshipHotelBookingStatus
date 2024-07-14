@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        // Redirect to home page after 5 seconds
+        setTimeout(function() {
+            window.location.href = "{{ url_for('home') }}";
+        }, 5000);
+    </script>
+    <style>
+        .zoom-in-text {
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-body text-center">
+                <h2 class="card-title text-danger zoom-in-text">Canceled</h2>
+                <p class="lead zoom-in-text">Unfortunately, the booking was canceled. 😢</p>
+                <a href="{{ url_for('home') }}" class="btn btn-primary mt-3">Go Back</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

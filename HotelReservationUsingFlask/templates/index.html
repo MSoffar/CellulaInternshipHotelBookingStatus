@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Model Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="card-title text-center">Predict Booking Status</h2>
+                <form action="/predict" method="post">
+                    <div class="form-group">
+                        <label for="number_of_adults">Number of Adults:</label>
+                        <input type="text" class="form-control" id="number_of_adults" name="number of adults" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="number_of_children">Number of Children:</label>
+                        <input type="text" class="form-control" id="number_of_children" name="number of children" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="number_of_weekend_nights">Number of Weekend Nights:</label>
+                        <input type="text" class="form-control" id="number_of_weekend_nights" name="number of weekend nights" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="number_of_week_nights">Number of Week Nights:</label>
+                        <input type="text" class="form-control" id="number_of_week_nights" name="number of week nights" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type_of_meal">Type of Meal:</label>
+                        <input type="text" class="form-control" id="type_of_meal" name="type of meal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="car_parking_space">Car Parking Space:</label>
+                        <input type="text" class="form-control" id="car_parking_space" name="car parking space" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="room_type">Room Type:</label>
+                        <input type="text" class="form-control" id="room_type" name="room type" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lead_time">Lead Time:</label>
+                        <input type="text" class="form-control" id="lead_time" name="lead time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="market_segment_type">Market Segment Type:</label>
+                        <input type="text" class="form-control" id="market_segment_type" name="market segment type" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="repeated">Repeated:</label>
+                        <input type="text" class="form-control" id="repeated" name="repeated" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="P_C">P-C:</label>
+                        <input type="text" class="form-control" id="P_C" name="P-C" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="P_not_C">P-not-C:</label>
+                        <input type="text" class="form-control" id="P_not_C" name="P-not-C" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="average_price">Average Price:</label>
+                        <input type="text" class="form-control" id="average_price" name="average price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="special_requests">Special Requests:</label>
+                        <input type="text" class="form-control" id="special_requests" name="special requests" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date_of_reservation">Date of Reservation:</label>
+                        <input type="date" class="form-control" id="date_of_reservation" name="date of reservation" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Predict</button>
+                </form>
+                {% if prediction_text %}
+                    <div class="alert alert-info mt-4">
+                        <h4>{{ prediction_text }}</h4>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <footer>
+            &copy; 2023 Hotel Booking Prediction
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
