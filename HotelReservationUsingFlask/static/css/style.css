@@ -1,0 +1,226 @@
+/* Add custom styles for the left part */
+.left-section {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: 40%;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.left-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.left-section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.gallery {
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    height: 300px; /* Adjust as needed */
+}
+
+.gallery img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.gallery img.active {
+    opacity: 1;
+}
+
+.testimonials {
+    margin-top: 80px;
+}
+
+.testimonials h2 {
+    color: #ffffff; /* Tomato color for the title */
+    font-size: 3rem; /* Adjust as needed */
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.testimonial p {
+    color: #ffffff; /* Light blue color for the review text */
+    font-size: 2rem; /* Adjust as needed */
+    font-style: italic; /* Optional: make the text italic */
+    margin-bottom: 5px; /* Adjust as needed */
+}
+
+/* Other existing CSS */
+body {
+    background-image: url('../images/hotel.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #D2B48C; /* Beige color */
+    animation: fadeIn 2s ease-in-out;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 1s ease-in-out;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 400px;
+}
+
+.form-label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #D2B48C; /* Beige color */
+    animation: fadeIn 2s ease-in-out;
+    text-align: right; /* Right align labels */
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    text-align: right; /* Right align input text */
+}
+
+.form-control:focus {
+    border-color: #D2B48C; /* Beige color */
+    box-shadow: 0 0 5px rgba(210, 180, 140, 0.5);
+}
+
+.form-check-input {
+    margin-left: auto; /* Right align checkboxes */
+}
+
+.btn-primary {
+    background-color: #D2B48C; /* Beige color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: bounceIn 1s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #C3A07C;
+    transform: scale(1.05);
+}
+
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Additional styling for better user experience */
+.card {
+    border: none;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.form-check-label {
+    margin-left: 10px;
+    color: #D2B48C; /* Beige color */
+    animation: fadeIn 2s ease-in-out;
+}
+
+.alert-info {
+    background-color: #D2B48C; /* Beige color */
+    color: white;
+    border: none;
+    animation: fadeIn 2s ease-in-out;
+}
+
+footer {
+    color: #fff;
+    font-size: 14px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    from, 20%, 40%, 60%, 80%, to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        transform: scale3d(.9, .9, .9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        transform: scale3d(.97, .97, .97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}

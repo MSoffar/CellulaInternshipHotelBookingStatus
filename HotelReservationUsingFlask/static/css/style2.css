@@ -1,0 +1,82 @@
+/* Base Styles */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: url("../images/hotel2.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color:#D2B48C;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    padding: 20px;
+}
+
+.card {
+    border: none;
+}
+
+.card-title {
+    color: #D2B48C;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group label {
+    color:#D2B48C;
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.form-control::placeholder {
+    color: #d1d1d1;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #D2B48C;
+    border-color: #D2B48C;
+    font-size: 1.2em;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #D2B48C;
+    border-color: #D2B48C;
+}
+
+.alert-info {
+    background-color: rgba(0, 123, 255, 0.5); /* Semi-transparent alert */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+}

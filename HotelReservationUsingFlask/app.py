@@ -7,9 +7,9 @@ from dateutil import parser
 app = Flask(__name__)
 
 # Define the paths for the model, scaler, and selector
-MODEL_PATH = r'D:\FlaskProject\model\best_gradient_boosting_model.pkl'
-SCALER_PATH = r'D:\FlaskProject\model\scaler.pkl'
-SELECTOR_PATH = r'D:\FlaskProject\model\selector.pkl'
+MODEL_PATH = r'D:\HotelReservationUsingFlask\model\model2.pkl'
+SCALER_PATH = r'D:\HotelReservationUsingFlask\model\scaler2.pkl'
+SELECTOR_PATH = r'D:\HotelReservationUsingFlask\model\selector2.pkl'
 
 # Load the pre-trained model, scaler, and selector
 model = joblib.load(MODEL_PATH)
@@ -19,7 +19,7 @@ vt_selector = joblib.load(SELECTOR_PATH)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('predict_form.html')
 
 
 @app.route('/predict', methods=['POST'])
@@ -44,10 +44,14 @@ def predict():
 def preprocess_input(df):
     # Convert relevant columns to numeric values
     numeric_features = ['number of adults', 'number of children', 'number of weekend nights',
-                        'number of week nights', 'car parking space', 'lead time', 'repeated',
-                        'P-C', 'P-not-C', 'average price', 'special requests']
+                        'number of week nights', 'lead time', 'P-C', 'P-not-C', 'average price', 'special requests']
+
     for feature in numeric_features:
         df[feature] = pd.to_numeric(df[feature])
+
+    # Convert 'car parking space' and 'repeated' to 0 or 1
+    df['car parking space'] = df['car parking space'].apply(lambda x: 1 if x == 'on' else 0)
+    df['repeated'] = df['repeated'].apply(lambda x: 1 if x == 'on' else 0)
 
     # Function to parse dates with mixed formats
     def parse_dates(date_str):
@@ -91,6 +95,7 @@ def preprocess_input(df):
     return df_selected
 
 
+
 @app.route('/not_canceled')
 def not_canceled():
     return render_template('not_canceled.html')
@@ -99,7 +104,5 @@ def not_canceled():
 @app.route('/canceled')
 def canceled():
     return render_template('canceled.html')
-
-
 if __name__ == "__main__":
     app.run(debug=True)
