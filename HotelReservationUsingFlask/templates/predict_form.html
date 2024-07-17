@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Predict Booking Status</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/5.1.3/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -32,138 +32,146 @@
     </div>
 
     <div class="container mt-5">
-        <div class="card shadow form-container">
+        <div class="card shadow form-container is-large">
             <div class="card-body">
                 <h2 class="card-title text-center">Predict Booking Status</h2>
                 <form id="predictForm" action="{{ url_for('predict') }}" method="post" onsubmit="return validateForm()">
-                    <div class="row mb-3">
-                        <label for="number_of_adults" class="col-sm-6 col-form-label form-label">Number of Adults (numeric):</label>
-                        <div class="col-sm-6">
-                            <input type="number" class="form-control" id="number_of_adults" name="number of adults" required>
+                    <div class="field">
+                        <label for="number_of_adults" class="label">Number of Adults (numeric):</label>
+                        <div class="control">
+                            <input type="number" class="input" id="number_of_adults" name="number of adults" required>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="number_of_children" class="col-sm-6 col-form-label form-label">Number of Children (numeric):</label>
-                        <div class="col-sm-6">
-                            <input type="number" class="form-control" id="number_of_children" name="number of children" required>
+                    <div class="field">
+                        <label for="number_of_children" class="label">Number of Children (numeric):</label>
+                        <div class="control">
+                            <input type="number" class="input" id="number_of_children" name="number of children" required>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="number_of_weekend_nights" class="col-sm-6 col-form-label form-label">Number of Weekend Nights (numeric):</label>
-                        <div class="col-sm-6">
-                            <input type="number" class="form-control" id="number_of_weekend_nights" name="number of weekend nights" required>
+                    <div class="field">
+                        <label for="number_of_weekend_nights" class="label">Number of Weekend Nights (numeric):</label>
+                        <div class="control">
+                            <input type="number" class="input" id="number_of_weekend_nights" name="number of weekend nights" required>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="number_of_week_nights" class="col-sm-6 col-form-label form-label">Number of Week Nights (numeric):</label>
-                        <div class="col-sm-6">
-                            <input type="number" class="form-control" id="number_of_week_nights" name="number of week nights" required>
+                    <div class="field">
+                        <label for="number_of_week_nights" class="label">Number of Week Nights (numeric):</label>
+                        <div class="control">
+                            <input type="number" class="input" id="number_of_week_nights" name="number of week nights" required>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="type_of_meal" class="col-sm-6 col-form-label form-label">Type of Meal (select one):</label>
-                        <div class="col-sm-6">
-                            <select class="form-control" id="type_of_meal" name="type of meal" required>
-                                <option value="">Select Meal Plan</option>
-                                <option value="Meal Plan 1">Meal Plan 1</option>
-                                <option value="Meal Plan 2">Meal Plan 2</option>
-                                <option value="Meal Plan 3">Meal Plan 3</option>
-                                <option value="Not Selected">Not Selected</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="car_parking_space" class="col-sm-6 col-form-label form-label">Car Parking Space (tick for Yes):</label>
-                        <div class="col-sm-6">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="car_parking_space" name="car parking space" value="1">
-                                <input type="hidden" name="car parking space" value="0">
+                    <div class="field">
+                        <label for="type_of_meal" class="label">Type of Meal (select one):</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="type_of_meal" name="type of meal" required>
+                                    <option value="">Select Meal Plan</option>
+                                    <option value="Meal Plan 1">Meal Plan 1</option>
+                                    <option value="Meal Plan 2">Meal Plan 2</option>
+                                    <option value="Meal Plan 3">Meal Plan 3</option>
+                                    <option value="Not Selected">Not Selected</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="room_type" class="col-sm-6 col-form-label form-label">Room Type (select one):</label>
-                        <div class="col-sm-6">
-                            <select class="form-control" id="room_type" name="room type" required>
-                                <option value="">Select Room Type</option>
-                                <option value="Room_Type 1">Room_Type 1</option>
-                                <option value="Room_Type 2">Room_Type 2</option>
-                                <option value="Room_Type 3">Room-Type 3</option>
-                                <option value="Room_Type 4">Room_Type 4</option>
-                                <option value="Room_Type 5">Room_Type 5</option>
-                                <option value="Room_Type 6">Room-Type 6</option>
-                                <option value="Room_Type 7">Room-Type 7</option>
-                            </select>
+                    <div class="field">
+                        <label for="car_parking_space" class="label">Car Parking Space (tick for Yes):</label>
+                        <div class="control">
+                            <label class="checkbox">
+                                <input type="checkbox" id="car_parking_space" name="car parking space" value="1"> Yes
+                            </label>
+                            <input type="hidden" name="car parking space" value="0">
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="lead_time" class="col-sm-6 col-form-label form-label">Lead Time (numeric):</label>
-                        <div class="col-sm-6">
-                            <input type="number" class="form-control" id="lead_time" name="lead time" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="market_segment_type" class="col-sm-6 col-form-label form-label">Market Segment Type (select one):</label>
-                        <div class="col-sm-6">
-                            <select class="form-control" id="market_segment_type" name="market segment type" required>
-                                <option value="">Select Market Segment</option>
-                                <option value="Offline">Offline</option>
-                                <option value="Online">Online</option>
-                                <option value="Corporate">Corporate</option>
-                                <option value="Aviation">Aviation</option>
-                                <option value="Complementary">Complementary</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="repeated" class="col-sm-6 col-form-label form-label">Repeated (tick for Yes):</label>
-                        <div class="col-sm-6">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="repeated" name="repeated" value="1">
-                                <input type="hidden" name="repeated" value="0">
+                    <div class="field">
+                        <label for="room_type" class="label">Room Type (select one):</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="room_type" name="room type" required>
+                                    <option value="">Select Room Type</option>
+                                    <option value="Room_Type 1">Room_Type 1</option>
+                                    <option value="Room_Type 2">Room_Type 2</option>
+                                    <option value="Room_Type 3">Room-Type 3</option>
+                                    <option value="Room_Type 4">Room_Type 4</option>
+                                    <option value="Room_Type 5">Room_Type 5</option>
+                                    <option value="Room_Type 6">Room-Type 6</option>
+                                    <option value="Room-Type 7">Room-Type 7</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="P_C" class="col-sm-6 col-form-label form-label">P-C (numeric, 0-100):</label>
-                        <div class="col-sm-6">
-                            <input type="number" class="form-control" id="P_C" name="P-C" min="0" max="100" required>
+                    <div class="field">
+                        <label for="lead_time" class="label">Lead Time (numeric):</label>
+                        <div class="control">
+                            <input type="number" class="input" id="lead_time" name="lead time" required>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="P_not_C" class="col-sm-6 col-form-label form-label">P-not-C (numeric, 0-100):</label>
-                        <div class="col-sm-6">
-                            <input type="number" class="form-control" id="P_not_C" name="P-not-C" min="0" max="100" required>
+                    <div class="field">
+                        <label for="market_segment_type" class="label">Market Segment Type (select one):</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="market_segment_type" name="market segment type" required>
+                                    <option value="">Select Market Segment</option>
+                                    <option value="Offline">Offline</option>
+                                    <option value="Online">Online</option>
+                                    <option value="Corporate">Corporate</option>
+                                    <option value="Aviation">Aviation</option>
+                                    <option value="Complementary">Complementary</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="average_price" class="col-sm-6 col-form-label form-label">Average Price (numeric):</label>
-                        <div class="col-sm-6">
-                            <input type="number" class="form-control" id="average_price" name="average price" step="any" required>
+                    <div class="field">
+                        <label for="repeated" class="label">Repeated (tick for Yes):</label>
+                        <div class="control">
+                            <label class="checkbox">
+                                <input type="checkbox" id="repeated" name="repeated" value="1"> Yes
+                            </label>
+                            <input type="hidden" name="repeated" value="0">
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="special_requests" class="col-sm-6 col-form-label form-label">Special Requests (numeric):</label>
-                        <div class="col-sm-6">
-                            <input type="number" class="form-control" id="special_requests" name="special requests" required>
+                    <div class="field">
+                        <label for="P_C" class="label">P-C (numeric, 0-100):</label>
+                        <div class="control">
+                            <input type="number" class="input" id="P_C" name="P-C" min="0" max="100" required>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="registration_date" class="col-sm-6 col-form-label form-label">Registration Date:</label>
-                        <div class="col-sm-6">
-                            <input type="date" class="form-control" id="registration_date" name="date of reservation" required>
+                    <div class="field">
+                        <label for="P_not_C" class="label">P-not-C (numeric, 0-100):</label>
+                        <div class="control">
+                            <input type="number" class="input" id="P_not_C" name="P-not-C" min="0" max="100" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="average_price" class="label">Average Price (numeric):</label>
+                        <div class="control">
+                            <input type="number" class="input" id="average_price" name="average price" step="any" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="special_requests" class="label">Special Requests (numeric):</label>
+                        <div class="control">
+                            <input type="number" class="input" id="special_requests" name="special requests" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="registration_date" class="label">Registration Date:</label>
+                        <div class="control">
+                            <input type="date" class="input" id="registration_date" name="date of reservation" required>
                         </div>
                     </div>                    
-                    <button type="submit" class="btn btn-primary btn-block">Predict</button>
+                    <div class="control">
+                        <button type="submit" class="button is-primary is-fullwidth">Predict</button>
+                    </div>
                 </form>
                 {% if prediction_text %}
-                    <div class="alert alert-info mt-4">
+                    <div class="notification is-info mt-4">
                         <h4>{{ prediction_text }}</h4>
                     </div>
                 {% endif %}
             </div>
         </div>
-        <footer class="mt-5 text-center">
+        <footer class="mt-5 has-text-centered">
             &copy; 2023 Mohamed Soffar's Hotel Reservation
         </footer>
     </div>
